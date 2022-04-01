@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x-mini-vue</title>
+</head>
+<body>
+    <div class="" id="app">
+        <div>{{msg}}</div>
+        <input type="text" v-model="msg">
+        <div v-text="msg"></div>
+        <div>{{obj.text}}</div>
+        <div v-html="htmlTemp"></div>
+        <button v-on:click="clickBtn">通过on点击</button>
+        <button @click="clickBtn">通过@点击</button>
+    </div>
+</body>
+<script src="./MiniVue.js">
+</script>
+<script>
+    const miniVue = new MiniVue({
+        el: '#app',
+        data:{
+            msg:"MiniVue",
+            obj: {
+                text: 'aaaaa'
+            },
+            htmlTemp:'<h1>这是一个html模板</h1>'
+        },
+        methods:{
+            clickBtn() {
+                this.$data.obj.text = 'clicked'
+            }
+        }
+    })
+</script>
+</html>
